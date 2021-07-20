@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
   
+  var totalTime: Float = 0
+  
   var timer = Timer()
   
   @IBOutlet var timerLabel: UILabel!
@@ -35,14 +37,14 @@ class ViewController: UIViewController {
   }
   
   func startTimer(time: Int) {
-    let totalTime: Float = Float(time)
+    totalTime = Float(time)
     var timeRemaining: Float = 0
     
     timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {
       timer in
-      if timeRemaining < totalTime {
+      if timeRemaining < self.totalTime {
         timeRemaining += 0.01
-        let tickTock = totalTime - timeRemaining
+        let tickTock = self.totalTime - timeRemaining
         self.timerLabel.text = String(format: "%.2f", tickTock)
       } else {
         self.timerLabel.text = "0.00"
@@ -53,8 +55,13 @@ class ViewController: UIViewController {
   
   func endTimer() {
     let alert = UIAlertController(title: "Timer Complete", message: "", preferredStyle: .alert)
-    let closeAlert = UIAlertAction(title: "OK", style: .default)
+    let closeAlert = UIAlertAction(title: "Dismiss", style: .default)
     alert.addAction(closeAlert)
+    
+    let repeatTimer = UIAlertAction(title: "Repeat?", style: .default) {_ in
+      self.startTimer(time: Int(self.totalTime))
+    }
+    alert.addAction(repeatTimer)
     present(alert, animated: true, completion: nil)
     timer.invalidate()
   }
