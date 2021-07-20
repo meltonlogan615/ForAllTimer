@@ -57,6 +57,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="startStopButton" destination="22s-PJ-NnS" id="Y8G-80-aDq"/>
                         <outlet property="timerInput" destination="Z2y-Xc-e1a" id="6ZI-Xq-YT7"/>
                         <outlet property="timerLabel" destination="5X7-9v-Gcs" id="bYv-kr-Rim"/>
                     </connections>

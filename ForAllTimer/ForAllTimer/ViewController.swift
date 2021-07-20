@@ -13,6 +13,7 @@ class ViewController: UIViewController {
   
   @IBOutlet var timerLabel: UILabel!
   @IBOutlet var timerInput: UITextField!
+  @IBOutlet var startStopButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,14 +45,19 @@ class ViewController: UIViewController {
         let tickTock = totalTime - timeRemaining
         self.timerLabel.text = String(format: "%.2f", tickTock)
       } else {
-        print("poop")
-        timer.invalidate()
+        self.timerLabel.text = "0.00"
+        self.endTimer()
       }
     }
   }
   
-  
-  
+  func endTimer() {
+    let alert = UIAlertController(title: "Timer Complete", message: "", preferredStyle: .alert)
+    let closeAlert = UIAlertAction(title: "OK", style: .default)
+    alert.addAction(closeAlert)
+    present(alert, animated: true, completion: nil)
+    timer.invalidate()
+  }
   
 }
 
