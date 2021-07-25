@@ -15,6 +15,13 @@ class ViewController: UIViewController {
   let shape = CAShapeLayer()
   let pulseRing = CAShapeLayer()
   
+  // Countdown Timer Inits
+  private lazy var countdownTimer = CountdownTimer(totalTime: totalTime, timerLabel: timerLabel, animations: animateShape)
+  
+  // Animation Inits
+  private lazy var animateRing = Animations(object: pulseRing)
+  private lazy var animateShape = Animations(object: shape)
+  
   private let timerLabel: UILabel = {
     let label = UILabel()
     label.text = "0.00"
@@ -26,7 +33,6 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.width / 2,
                                                      y: view.frame.height / 4),
                                   radius: 100,
@@ -91,65 +97,50 @@ class ViewController: UIViewController {
       } else {
         print("\(timerInput.text ?? "000")")
         timerLabel.text = "\(countdown).00"
-        startTimer(time: Int(countdown)!)
-        // Animation
-        pulsate(totalTime: Int(countdown)!)
-        animate(totalTime: Int(countdown)!)
+        countdownTimer.startTimer(time: Int(countdown)!)
+        
+        // Animations
+        animateRing.pulsate(totalTime: Int(countdown)!)
+        animateShape.animate(totalTime: Int(countdown)!)
       }
     }
     timerInput.text = ""
   }
   
-  func startTimer(time: Int) {
-    totalTime = Float(time)
-    var timeRemaining: Float = 0
-    
-    timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) {
-      timer in
-      if timeRemaining < self.totalTime {
-        timeRemaining += 0.02
-        let tickTock = self.totalTime - timeRemaining
-        self.timerLabel.text = String(format: "%.2f", tickTock)
-        
-      } else {
-        self.timerLabel.text = "0.00"
-        self.endTimer()
-      }
-    }
-  }
+//  func startTimer(time: Int) {
+//    totalTime = Float(time)
+//    var timeRemaining: Float = 0
+//
+//    timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) {
+//      timer in
+//      if timeRemaining < self.totalTime {
+//        timeRemaining += 0.02
+//        let tickTock = self.totalTime - timeRemaining
+//        self.timerLabel.text = String(format: "%.2f", tickTock)
+//
+//      } else {
+//        self.timerLabel.text = "0.00"
+//        self.endTimer()
+//      }
+//    }
+//  }
+//
+//  func endTimer() {
+//    let alert = UIAlertController(title: "Timer Complete", message: "", preferredStyle: .alert)
+//    let closeAlert = UIAlertAction(title: "Dismiss", style: .default)
+//    alert.addAction(closeAlert)
+//
+//    let repeatTimer = UIAlertAction(title: "Repeat", style: .default) {_ in
+//      self.startTimer(time: Int(self.totalTime))
+//      self.pulsate(totalTime: Int(self.totalTime))
+//      self.animate(totalTime: Int(self.totalTime))
+//
+//    }
+//    alert.addAction(repeatTimer)
+//    present(alert, animated: true, completion: nil)
+//    timer.invalidate()
+//  }
   
-  func endTimer() {
-    let alert = UIAlertController(title: "Timer Complete", message: "", preferredStyle: .alert)
-    let closeAlert = UIAlertAction(title: "Dismiss", style: .default)
-    alert.addAction(closeAlert)
-    
-    let repeatTimer = UIAlertAction(title: "Repeat", style: .default) {_ in
-      self.startTimer(time: Int(self.totalTime))
-      self.pulsate(totalTime: Int(self.totalTime))
-      self.animate(totalTime: Int(self.totalTime))
-      
-    }
-    alert.addAction(repeatTimer)
-    present(alert, animated: true, completion: nil)
-    timer.invalidate()
-  }
-  
-  func animate(totalTime: Int) {
-    let animation = CABasicAnimation(keyPath: "strokeEnd")
-    animation.toValue = 1
-    animation.duration = (Double(totalTime) + 0.9)
-    animation.isRemovedOnCompletion = false
-    animation.fillMode = .forwards
-    shape.add(animation, forKey: "animation")
-  }
-  
-  func pulsate(totalTime: Int) {
-    let pulsation = CABasicAnimation(keyPath: "lineWidth")
-    pulsation.fromValue = 10
-    pulsation.toValue = 30
-    pulsation.duration = Double(totalTime) / 2
-    pulsation.autoreverses = true
-    pulseRing.add(pulsation, forKey: "pulsate")
-  }
+
 }
 

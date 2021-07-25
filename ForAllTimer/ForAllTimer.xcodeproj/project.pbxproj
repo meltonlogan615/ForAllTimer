@@ -13,6 +13,8 @@
 		5342001A26A5191A00C49DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5342001826A5191A00C49DF7 /* Main.storyboard */; };
 		5342001C26A5192100C49DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5342001B26A5192100C49DF7 /* Assets.xcassets */; };
 		5342001F26A5192100C49DF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5342001D26A5192100C49DF7 /* LaunchScreen.storyboard */; };
+		5342002726ADA44C00C49DF7 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342002626ADA44B00C49DF7 /* CountdownTimer.swift */; };
+		5342002926ADA5E300C49DF7 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342002826ADA5E300C49DF7 /* Animations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		5342001B26A5192100C49DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5342001E26A5192100C49DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5342002026A5192100C49DF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5342002626ADA44B00C49DF7 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		5342002826ADA5E300C49DF7 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +63,22 @@
 				5342001226A5191A00C49DF7 /* AppDelegate.swift */,
 				5342001426A5191A00C49DF7 /* SceneDelegate.swift */,
 				5342001626A5191A00C49DF7 /* ViewController.swift */,
+				5342002A26ADA8D600C49DF7 /* Models */,
 				5342001826A5191A00C49DF7 /* Main.storyboard */,
 				5342001B26A5192100C49DF7 /* Assets.xcassets */,
 				5342001D26A5192100C49DF7 /* LaunchScreen.storyboard */,
 				5342002026A5192100C49DF7 /* Info.plist */,
 			);
 			path = ForAllTimer;
+			sourceTree = "<group>";
+		};
+		5342002A26ADA8D600C49DF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5342002626ADA44B00C49DF7 /* CountdownTimer.swift */,
+				5342002826ADA5E300C49DF7 /* Animations.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5342001726A5191A00C49DF7 /* ViewController.swift in Sources */,
+				5342002926ADA5E300C49DF7 /* Animations.swift in Sources */,
+				5342002726ADA44C00C49DF7 /* CountdownTimer.swift in Sources */,
 				5342001326A5191A00C49DF7 /* AppDelegate.swift in Sources */,
 				5342001526A5191A00C49DF7 /* SceneDelegate.swift in Sources */,
 			);
