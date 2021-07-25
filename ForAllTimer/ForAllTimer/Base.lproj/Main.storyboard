@@ -15,52 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="112" translatesAutoresizingMaskIntoConstraints="NO" id="6I4-R4-49e">
-                                <rect key="frame" x="0.0" y="275" width="414" height="346.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X7-9v-Gcs">
-                                        <rect key="frame" x="164.5" y="0.0" width="85" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Time in Seconds" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2y-Xc-e1a">
-                                        <rect key="frame" x="77.5" y="155" width="259" height="38.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22s-PJ-NnS">
-                                        <rect key="frame" x="92" y="305.5" width="230" height="41"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startTimerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rcU-tQ-PG3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="22s-PJ-NnS" secondAttribute="trailing" constant="92" id="ZWN-iS-zjb"/>
-                                    <constraint firstItem="22s-PJ-NnS" firstAttribute="leading" secondItem="6I4-R4-49e" secondAttribute="leading" constant="92" id="vqZ-2W-nDp"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6I4-R4-49e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0dX-BM-e2o"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6I4-R4-49e" secondAttribute="trailing" id="ucq-Ed-T3l"/>
-                            <constraint firstItem="6I4-R4-49e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vC3-5b-axM"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="startStopButton" destination="22s-PJ-NnS" id="Y8G-80-aDq"/>
-                        <outlet property="timerInput" destination="Z2y-Xc-e1a" id="6ZI-Xq-YT7"/>
-                        <outlet property="timerLabel" destination="5X7-9v-Gcs" id="bYv-kr-Rim"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
